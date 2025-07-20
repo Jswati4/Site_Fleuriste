@@ -1,0 +1,83 @@
+/*INSCRIPTION*/
+
+body {
+  background-color: #fff8e7;
+  font-family: 'Arial', sans-serif;
+  color: #5B4138;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inscription-container {
+  background-color: #fffced;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(91, 65, 56, 0.3);
+  width: 360px;
+  text-align: center;
+}
+
+.inscription-container h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  color: #5B4138;
+}
+
+.inscription-container input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: 2px solid #F9AAB4;
+  font-size: 1.1em;
+  color: #5B4138;
+  box-sizing: border-box;
+}
+
+.inscription-container button {
+  width: 100%;
+  background-color: #F9AAB4;
+  color: white;
+  border: none;
+  padding: 12px 0;
+  font-size: 1.2em;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.inscription-container button:hover {
+  background-color: #5B4138;
+}
+
+.erreur-message, .success-message {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.erreur-message {
+  color: red;
+}
+
+.success-message {
+  color: green;
+}
+
+.footer-link {
+  margin-top: 20px;
+  font-size: 1em;
+}
+
+.footer-link a {
+  color: #5B4138;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-link a:hover {
+  color: #F9AAB4;
+  text-decoration: underline;
+}
