@@ -2,22 +2,27 @@
 session_start();
 
 if (isset($_POST['nom'], $_POST['action']) && isset($_SESSION['panier'])) {
-  foreach ($_SESSION['panier'] as &$article) {
-    if ($article['nom'] === $_POST['nom']) {
-      if ($_POST['action'] === 'plus') {
+  $nom = $_POST['nom'];
+  $action = $_POST['action'];
+
+  foreach ($_SESSION['panier'] as $index => &$article) {
+    if ($article['nom'] === $nom) {
+      if ($action === 'plus') {
         $article['quantite']++;
-      } elseif ($_POST['action'] === 'moins') {
+      } elseif ($action === 'moins') {
         $article['quantite']--;
         if ($article['quantite'] < 1) {
-          // Supprime l'article si quantité = 0
-          $_SESSION['panier'] = array_filter($_SESSION['panier'], function($item) {
-            return $item['quantite'] > 0;
-          });
+          unset($_SESSION['panier'][$index]);
         }
+      } elseif ($action === 'supprimer') {
+        unset($_SESSION['panier'][$index]);
       }
       break;
     }
   }
+
+  // Réindexe le tableau après suppressions
+  $_SESSION['panier'] = array_values($_SESSION['panier']);
 }
 
 header('Location: panier.php');

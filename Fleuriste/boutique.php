@@ -62,48 +62,36 @@
               <h3>${b.nom}</h3>
               <p class="taille">Taille : ${b.taille}</p>
               <p class="prix">${b.prix} €</p>
-              <img src="assets/images/panier.png" alt="Ajouter au panier" class="ajouter-panier" onclick="ajouterAuPanier(${b.id})">
+              <img src="assets/images/panier.png" alt="Ajouter au panier" class="ajouter-panier" onclick='
+              ajouterAuPanier(${JSON.stringify(b)})'>
             </div>
           `;
         });
       });
 
-    function ajouterAuPanier(id) {
-  // Trouve le bouquet dans la liste chargée
-  fetch('api/get_bouquets_boutique.php')
-    .then(res => res.json())
-    .then(bouquets => {
-      const bouquet = bouquets.find(b => b.id === id);
-      if (!bouquet) {
-        alert("Produit non trouvé");
-        return;
-      }
+    function ajouterAuPanier(bouquet) {
+  const data = {
+    nom: bouquet.nom,
+    prix: bouquet.prix,
+    image: bouquet.image,
+    quantite: 1
+  };
 
-      // Prépare les données à envoyer (nom, prix, image, taille...)
-      const data = {
-        nom: bouquet.nom,
-        prix: bouquet.prix,
-        image: bouquet.image,  // attention à bien avoir le nom du fichier ici
-        taille: bouquet.taille || 'M'  // si besoin
-      };
-
-      fetch('api/add_to_cart.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-      .then(res => res.json())
-      .then(response => {
-        if (response.status === 'ok') {
-          alert("Ajouté au panier !");
-        } else {
-          alert("Erreur lors de l'ajout au panier");
-        }
-      })
-      .catch(() => alert("Erreur réseau"));
-    });
+  fetch('api/add_to_cart.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(response => {
+    if (response.status === 'ok') {
+      alert("Ajouté au panier !");
+    } else {
+      alert("Erreur lors de l'ajout au panier");
+    }
+  })
+  .catch(() => alert("Erreur réseau"));
 }
-
   </script>
 
   <section class="newsletter">

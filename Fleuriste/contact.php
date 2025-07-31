@@ -70,7 +70,8 @@
       <input type="text" id="ville" name="ville" required>
 
       <label for="telephone">Téléphone *</label>
-      <input type="tel" id="telephone" name="telephone" required pattern="^(\+?\d{1,3}[- ]?)?\d{9,15}$" title="Veuillez entrer un numéro de téléphone valide">
+      <input type="tel" id="telephone" name="telephone" required pattern="^(\+?\d{1,3}[- ]?)?\d{9,15}$" 
+      title="Veuillez entrer un numéro de téléphone valide">
 
       <label for="prestation">Type de prestation *</label>
       <input type="text" id="prestation" name="prestation" required>

@@ -1,21 +1,32 @@
 <?php
-// Traitement AJAX côté serveur
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Content-Type: application/json');
-    header('Access-Control-Allow-Origin: *'); // Pour tests ou usage distant
+    header('Access-Control-Allow-Origin: *');
 
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
     if ($email) {
-        $file = fopen('emails.txt', 'a');
-        fwrite($file, $email . PHP_EOL);
-        fclose($file);
+        $token = md5($email . time());
+
+        // Stocker email + token dans un fichier temporaire
+        file_put_contents('pending_confirmations.txt', $email . ',' . $token . PHP_EOL, FILE_APPEND);
+
+        // Lien de confirmation avec le nouveau fichier newsletter_confirmation.php
+        $confirmationLink = "https://tondomaine.com/newsletter_confirmation.php?token=$token";
+
+        $subject = "Confirmez votre inscription à la newsletter";
+        $message = "Bonjour,\n\nMerci de confirmer votre inscription en cliquant sur ce lien :\n$confirmationLink\n\nÀ bientôt!";
+        $headers = 'From: no-reply@tondomaine.com' . "\r\n" .
+                   'Reply-To: no-reply@tondomaine.com' . "\r\n" .
+                   'X-Mailer: PHP/' . phpversion();
+
+        mail($email, $subject, $message, $headers);
+
         echo json_encode(['success' => true]);
     } else {
         http_response_code(400);
         echo json_encode(['success' => false, 'message' => 'Adresse e-mail invalide']);
     }
-
     exit;
 }
 ?>
@@ -95,10 +106,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   function inscrireEmail() {
     const email = document.getElementById('email').value.trim();
 
-    if (!email) {
-      alert("Veuillez entrer une adresse e-mail.");
-      return;
-    }
+    if (data.success) {
+  alert("Un email de confirmation vous a été envoyé. Merci de valider votre inscription !");
+  document.getElementById('email').value = '';
+}
+
 
     fetch('newsletter.php', {
       method: 'POST',

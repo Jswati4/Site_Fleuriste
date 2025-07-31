@@ -88,11 +88,11 @@
       <div id="messageDetails" style="display:none; margin-top:10px;">
         <label for="typeMessage">Type de message :</label>
         <select name="typeMessage" id="typeMessage">
-          <option value="je_taime">Je t'aime</option>
-          <option value="felicitation">Félicitations</option>
-          <option value="anniversaire">Joyeux anniversaire</option>
-          <option value="remerciement">Remerciement</option>
-          <option value="condoleances">Condoléances</option>
+          <option value="je_taime">💌 Je t'aime</option>
+          <option value="felicitation">🎉 Félicitations</option>
+          <option value="anniversaire">🎈 Joyeux anniversaire</option>
+          <option value="remerciement">🙏 Remerciement</option>
+          <option value="condoleances">🤍 Condoléances</option>
         </select>
         <br>
         <label for="texteMessage">Votre message :</label><br>
@@ -115,7 +115,7 @@
       <p style="font-size:0.9em; color:#5B4138;">(Plus vers la droite = bouquet plus cher)</p>
     </fieldset>
 
-    <button type="submit">Ajouter au panier</button>
+    <button type="submit">Valider mon bouquet 💐</button>
   </form>
 </main>
 
@@ -224,19 +224,20 @@
 
   // Préparer objet bouquet personnalisé
   const bouquetPerso = {
-    nom: "Bouquet personnalisé",
-    forme: forme,
-    fleurs: fleursChoisies,
-    couleurs: couleurs,
-    feuillages: feuillages,
-    messageChoix: messageChoix,
-    typeMessage: typeMessage,
-    texteMessage: texteMessage,
-    budget: budget,
-    prix: total,
-    image: 'bouquet-personnalise.jpg', // image par défaut (tu peux changer)
-    quantite: 1
-  };
+  nom: "Bouquet personnalisé",
+  forme: forme,
+  fleurs: fleursChoisies,
+  couleurs: couleurs,
+  feuillages: feuillages,
+  messageChoix: messageChoix,
+  typeMessage: typeMessage,
+  texteMessage: texteMessage,
+  budget: budget,
+  prix: total,
+  image: 'bouquet-personnalise.jpg', // <---- Ici l'image par défaut à envoyer !
+  quantite: 1
+};
+
 
   // Envoi au panier via fetch POST JSON
   fetch('api/add_to_cart.php', {
@@ -258,6 +259,8 @@
   .catch(() => alert("Erreur réseau."));
 });
 
+
+
 </script>
 
 
@@ -273,3 +276,9 @@
 
 </body>
 </html>
+
+
+
+
+
+

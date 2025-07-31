@@ -129,7 +129,8 @@
   <div class="faq-item">
     <button class="faq-question">Livrez-vous à domicile ?</button>
     <div class="faq-answer">
-      Oui, nous livrons aux alentours de Paris sans frais & en dehors de Paris avec des frais variables selon la distance.
+      Oui, nous livrons aux alentours de Paris sans frais & en dehors de Paris avec des
+       frais variables selon la distance.
     </div>
   </div>
 

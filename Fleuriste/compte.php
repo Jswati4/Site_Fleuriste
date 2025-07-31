@@ -14,9 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Vérification du mot de passe (hash)
     if ($client && password_verify($mdp, $client['mdp'])) {
         $_SESSION['client'] = [
-            'id' => $client['id_c'],
-            'nom' => $client['nom'],
-            'prénom' => $client['prénom']
+    'id' => $client['id_c'],
+    'nom' => $client['nom'],
+    'prenom' => $client['prenom']
         ];
 
         // ✅ Redirection vers l'accueil
@@ -106,7 +106,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form method="POST" action="compte.php">
       <input type="email" name="email" placeholder="E-mail" required />
-      <input type="password" name="mdp" placeholder="Mot de passe" required />
+      <div style="position: relative;">
+  <div style="position: relative;">
+  <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" required />
+  <input type="checkbox" id="togglePassword" 
+         style="position: absolute; top: 32%; right: 15px; transform: translateY(-50%); width: 30px; cursor: pointer;">
+</div>
+
+
       <button type="submit">Se connecter</button>
     </form>
   </div>
@@ -114,6 +121,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <p class="footer-link">
     Pas encore de compte ? <a href="inscription.php">Inscrivez-vous ici</a>
   </p>
+
+
+
+<script>
+  const togglePassword = document.getElementById("togglePassword");
+  const passwordInput = document.getElementById("mdp");
+
+  togglePassword.addEventListener("change", () => {
+    passwordInput.type = togglePassword.checked ? "text" : "password";
+  });
+</script>
+
+
 
 
 </body>

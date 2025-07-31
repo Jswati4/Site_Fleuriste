@@ -1,0 +1,104 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #FFE0D4;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  max-width: 600px;
+  margin: 60px auto;
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  text-align: center;
+  color: #5B4138;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #444;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fffafc;
+  font-size: 16px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ff99bb;
+  box-shadow: 0 0 0 3px #ffe6f0;
+}
+
+button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 14px;
+  background-color: #F9AAB4;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5B4138;
+}
+
+@media screen and (max-width: 640px) {
+  main {
+    margin: 20px;
+    padding: 25px;
+  }
+}
+
+    #promo-container {
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    #show-promo-link {
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+      margin-left: 5px;
+      font-weight: normal;
+      font-size: 14px;
+    }
+    #promo-input-container {
+      display: inline-block;
+      margin-left: 10px;
+      vertical-align: middle;
+      display: none; /* caché au départ */
+    }
+    #promo-input {
+      padding: 4px 6px;
+      font-size: 14px;
+      width: 150px;
+      vertical-align: middle;
+    }
+    #profiter-btn {
+      padding: 4px 8px;
+      font-size: 14px;
+      margin-left: 5px;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+
+

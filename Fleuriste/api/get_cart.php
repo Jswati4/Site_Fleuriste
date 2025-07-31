@@ -45,3 +45,13 @@ foreach ($customs as $index => $bouquet) {
 }
 
 echo json_encode($items);
+
+
+
+
+$sql = "SELECT * FROM Client WHERE email = '$email'";
+
+
+$stmt = $pdo->prepare("SELECT * FROM Client WHERE email = ?");
+$stmt->execute([$email]);
+

@@ -854,6 +854,14 @@ form p a:hover {
   text-decoration: underline;
 }
 
+.bouton-icone {
+  background: none;
+  border: none;
+  font-size: 1rem; /* Ajuste si tu veux plus petit */
+  cursor: pointer;
+  padding: 0 5px;
+}
+
 
 
 
