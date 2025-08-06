@@ -3,20 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Composer un bouquet</title>
+  <!-- Feuille de style principale -->
   <link rel="stylesheet" href="assets/style.css">
+  <!-- Police Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Oregano&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER : Barre de navigation du site -->
   <header>
     <div class="header-container">
       <div class="header-left">
+        <!-- Logo du site -->
         <img src="assets/images/logo.jpg" alt="Logo" class="logo">
       </div>
 
       <nav class="header-center">
+        <!-- Liens de navigation -->
         <a href="index.php">Accueil</a>
         <a href="a_propos.php">À propos</a>
         <a href="boutique.php">Boutique</a>
@@ -24,6 +28,7 @@
       </nav>
 
       <div class="header-right">
+        <!-- Icônes utilisateur, panier et bouton contact -->
         <a href="compte.php"><img src="assets/images/user.png" alt="Mon compte" class="icon"></a>
         <a href="panier.php"><img src="assets/images/panier.png" alt="Panier" class="icon"></a>
         <a href="contact.php" class="btn-contact">Contact</a>
@@ -32,7 +37,7 @@
   </header>
 
 
-  <!-- BANNIÈRE -->
+  <!-- BANNIÈRE : Présentation de la personnalisation du bouquet -->
   <section class="banner banner-composer">
     <div class="banner-content">
       <h1>Créez votre bouquet unique, inspiré de vos émotions</h1>
@@ -42,9 +47,10 @@
 
   <main>
   <h2>Crée ton bouquet personnalisé</h2>
+  <!-- Formulaire de personnalisation du bouquet -->
   <form id="formFleurs" class="qcm-section">
 
-    <!-- QCM Form -->
+    <!-- QCM Form : Choix de la forme du bouquet -->
     <fieldset>
       <legend>1. Quelle forme souhaitez-vous ?</legend>
       <label><input type="radio" name="forme" value="classique" required> Rond (classique et structuré)</label><br>
@@ -52,6 +58,7 @@
       <label><input type="radio" name="forme" value="poetique"> Rond flou (aérien et délicat)</label>
     </fieldset>
 
+    <!-- Choix des fleurs (plusieurs possibles) -->
     <fieldset>
       <legend>2. Quelles fleurs souhaitez-vous ? <small>(Choix multiples possibles)</small></legend>
       <label><input type="checkbox" name="fleurs[]" value="rose"> Rose</label><br>
@@ -62,6 +69,7 @@
       <label><input type="checkbox" name="fleurs[]" value="orchidee"> Orchidée</label>
     </fieldset>
 
+    <!-- Choix des couleurs (plusieurs possibles) -->
     <fieldset>
       <legend>3. Quelles couleurs préférez-vous ? <small>(Choix multiples possibles)</small></legend>
       <label><input type="checkbox" name="couleurs[]" value="rouge"> Rouge</label><br>
@@ -72,6 +80,7 @@
       <label><input type="checkbox" name="couleurs[]" value="vert"> Vert</label>
     </fieldset>
 
+    <!-- Choix du feuillage (plusieurs possibles) -->
     <fieldset>
       <legend>4. Type de feuillage <small>(Choix multiples possibles)</small></legend>
       <label><input type="checkbox" name="feuillages[]" value="ruscus"> Ruscus</label><br>
@@ -80,11 +89,13 @@
       <label><input type="checkbox" name="feuillages[]" value="pittosporum"> Pittosporum</label>
     </fieldset>
 
+    <!-- Choix d'ajouter un message personnalisé -->
     <fieldset>
       <legend>5. Souhaitez-vous ajouter un petit mot ?</legend>
       <label><input type="radio" name="message_choix" value="oui" required> Oui</label>
       <label><input type="radio" name="message_choix" value="non"> Non</label>
       
+      <!-- Bloc affiché si "Oui" sélectionné -->
       <div id="messageDetails" style="display:none; margin-top:10px;">
         <label for="typeMessage">Type de message :</label>
         <select name="typeMessage" id="typeMessage">
@@ -100,14 +111,14 @@
       </div>
     </fieldset>
 
-    <!-- Catalogue fleurs avec quantités -->
+    <!-- Catalogue des fleurs avec quantités à choisir -->
     <fieldset>
-  <legend>6. Choisissez les fleurs et quantités</legend>
-  <div id="catalogue" style="display: flex; flex-direction: column; gap: 10px;"></div>
-  <h3 style="margin-top: 20px;">Total : <span id="total">0.00</span> €</h3>
-</fieldset>
+      <legend>6. Choisissez les fleurs et quantités</legend>
+      <div id="catalogue" style="display: flex; flex-direction: column; gap: 10px;"></div>
+      <h3 style="margin-top: 20px;">Total : <span id="total">0.00</span> €</h3>
+    </fieldset>
 
-
+    <!-- Choix du budget via un slider -->
     <fieldset>
       <legend>7. Quel est votre budget ?</legend>
       <input type="range" name="budget" min="25" max="200" step="5" value="25" oninput="document.getElementById('valBudget').textContent = this.value + ' €'">
@@ -115,6 +126,7 @@
       <p style="font-size:0.9em; color:#5B4138;">(Plus vers la droite = bouquet plus cher)</p>
     </fieldset>
 
+    <!-- Bouton de validation du formulaire -->
     <button type="submit">Valider mon bouquet 💐</button>
   </form>
 </main>
@@ -122,6 +134,7 @@
 
 <!-- JS OUI/ NON QCM BOUQUET -->
 <script>
+  // Affiche ou masque le bloc message selon le choix Oui/Non
   document.addEventListener('DOMContentLoaded', function () {
     const radios = document.querySelectorAll('input[name="message_choix"]');
     const messageBlock = document.getElementById('messageDetails');
@@ -138,15 +151,16 @@
   });
 
 
-  let fleurs = [];
-  let total = 0;
+  let fleurs = []; // Stocke les fleurs du catalogue
+  let total = 0;   // Total du bouquet
 
-  // Charger les fleurs depuis ton fichier PHP
+  // Charge les fleurs depuis l'API PHP
   fetch('api/get_fleurs.php')
     .then(res => res.json())
     .then(data => {
       fleurs = data;
       const div = document.getElementById('catalogue');
+      // Pour chaque fleur, crée un champ quantité
       data.forEach(fleur => {
         const wrapper = document.createElement('div');
         wrapper.style.display = "flex";
@@ -160,13 +174,13 @@
         div.appendChild(wrapper);
       });
 
-      // Ajouter événement sur tous les champs
+      // Ajoute l'événement de calcul du total sur chaque champ quantité
       document.querySelectorAll('#catalogue input[type=number]').forEach(input => {
         input.addEventListener('input', calculerTotal);
       });
     });
 
-  // Calcule le total
+  // Calcule le total du bouquet selon les quantités
   function calculerTotal() {
     total = 0;
     fleurs.forEach(fleur => {
@@ -177,108 +191,95 @@
     document.getElementById('total').textContent = total.toFixed(2);
   }
 
+  // Gestion de la soumission du formulaire
   document.getElementById('formFleurs').addEventListener('submit', function(event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  const form = this;
+    const form = this;
 
-  // Récupérer la forme choisie
-  const forme = form.elements['forme'].value;
+    // Récupère la forme choisie
+    const forme = form.elements['forme'].value;
 
-  // Récupérer les fleurs choisies avec quantité
-  let fleursChoisies = [];
-  fleurs.forEach(fleur => {
-    const input = form.querySelector(`input[name="fleur_${fleur.id}"]`);
-    const quantite = parseInt(input.value) || 0;
-    if (quantite > 0) {
-      fleursChoisies.push({
-        id: fleur.id,
-        nom: fleur.nom,
-        prix: fleur.prix,
-        quantite: quantite
-      });
+    // Récupère les fleurs choisies avec quantité
+    let fleursChoisies = [];
+    fleurs.forEach(fleur => {
+      const input = form.querySelector(`input[name="fleur_${fleur.id}"]`);
+      const quantite = parseInt(input.value) || 0;
+      if (quantite > 0) {
+        fleursChoisies.push({
+          id: fleur.id,
+          nom: fleur.nom,
+          prix: fleur.prix,
+          quantite: quantite
+        });
+      }
+    });
+
+    // Vérifie qu'au moins une fleur est choisie
+    if (fleursChoisies.length === 0) {
+      alert("Veuillez choisir au moins une fleur avec quantité.");
+      return;
     }
+
+    // Récupère les couleurs choisies
+    const couleurs = Array.from(form.querySelectorAll('input[name="couleurs[]"]:checked')).map(el => el.value);
+
+    // Récupère les feuillages choisis
+    const feuillages = Array.from(form.querySelectorAll('input[name="feuillages[]"]:checked')).map(el => el.value);
+
+    // Récupère le choix du message et son contenu
+    const messageChoix = form.elements['message_choix'].value;
+    const typeMessage = form.elements['typeMessage'].value || '';
+    const texteMessage = form.elements['texteMessage'].value || '';
+
+    // Récupère le budget
+    const budget = form.elements['budget'].value;
+
+    // Récupère le total affiché
+    const total = parseFloat(document.getElementById('total').textContent);
+
+    // Prépare l'objet bouquet personnalisé à envoyer
+    const bouquetPerso = {
+      nom: "Bouquet personnalisé",
+      forme: forme,
+      fleurs: fleursChoisies,
+      couleurs: couleurs,
+      feuillages: feuillages,
+      messageChoix: messageChoix,
+      typeMessage: typeMessage,
+      texteMessage: texteMessage,
+      budget: budget,
+      prix: total,
+      image: 'bouquet-personnalise.jpg', // Image par défaut
+      quantite: 1
+    };
+
+    // Envoie le bouquet au panier via API (POST JSON)
+    fetch('api/add_to_cart.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(bouquetPerso)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.status === 'ok') {
+        alert("Votre bouquet personnalisé a été ajouté au panier !");
+        form.reset();
+        document.getElementById('total').textContent = "0.00";
+        document.getElementById('messageDetails').style.display = 'none';
+      } else {
+        alert("Erreur lors de l'ajout au panier.");
+      }
+    })
+    .catch(() => alert("Erreur réseau."));
   });
-
-  if (fleursChoisies.length === 0) {
-    alert("Veuillez choisir au moins une fleur avec quantité.");
-    return;
-  }
-
-  // Couleurs choisies
-  const couleurs = Array.from(form.querySelectorAll('input[name="couleurs[]"]:checked')).map(el => el.value);
-
-  // Feuillages choisis
-  const feuillages = Array.from(form.querySelectorAll('input[name="feuillages[]"]:checked')).map(el => el.value);
-
-  // Message choisi
-  const messageChoix = form.elements['message_choix'].value;
-  const typeMessage = form.elements['typeMessage'].value || '';
-  const texteMessage = form.elements['texteMessage'].value || '';
-
-  // Budget
-  const budget = form.elements['budget'].value;
-
-  // Calcul du total (comme affiché dans la page)
-  const total = parseFloat(document.getElementById('total').textContent);
-
-  // Préparer objet bouquet personnalisé
-  const bouquetPerso = {
-  nom: "Bouquet personnalisé",
-  forme: forme,
-  fleurs: fleursChoisies,
-  couleurs: couleurs,
-  feuillages: feuillages,
-  messageChoix: messageChoix,
-  typeMessage: typeMessage,
-  texteMessage: texteMessage,
-  budget: budget,
-  prix: total,
-  image: 'bouquet-personnalise.jpg', // <---- Ici l'image par défaut à envoyer !
-  quantite: 1
-};
-
-
-  // Envoi au panier via fetch POST JSON
-  fetch('api/add_to_cart.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(bouquetPerso)
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.status === 'ok') {
-      alert("Votre bouquet personnalisé a été ajouté au panier !");
-      form.reset();
-      document.getElementById('total').textContent = "0.00";
-      document.getElementById('messageDetails').style.display = 'none';
-    } else {
-      alert("Erreur lors de l'ajout au panier.");
-    }
-  })
-  .catch(() => alert("Erreur réseau."));
-});
-
-
 
 </script>
 
-
-
-<!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 - La Boutique Fleuriste 🌸</p>
-  </footer>
-
-
-
-
+<!-- FOOTER : Bas de page du site -->
+<footer>
+  <p>&copy; 2025 - La Boutique Fleuriste 🌸</p>
+</footer>
 
 </body>
 </html>
-
-
-
-
-
-

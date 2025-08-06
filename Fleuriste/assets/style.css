@@ -1,10 +1,12 @@
 /* === Reset général === */
+/* Réinitialise les marges, paddings et box-sizing pour tous les éléments */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Style général du body */
 body {
   font-family: 'Oregano', cursive;
   background-color: #FFE0D4;
@@ -13,6 +15,7 @@ body {
 }
 
 /* === Header === */
+/* Conteneur principal du header */
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -22,15 +25,18 @@ body {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Logo à gauche du header */
 .header-left .logo {
   height: 110px;
 }
 
+/* Centre du header (liens de navigation) */
 .header-center {
   display: flex;
   gap: 20px;
 }
 
+/* Liens de navigation du header */
 .header-center a {
   text-decoration: none;
   color: #5B4138;
@@ -40,23 +46,27 @@ body {
   border-radius: 8px;
 }
 
+/* Effet au survol des liens */
 .header-center a:hover {
   background: #F9AAB4;
   color: white;
 }
 
+/* Partie droite du header (icônes et bouton) */
 .header-right {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
+/* Icônes du header */
 .header-right .icon {
   width: 70px;
   height: 70px;
   cursor: pointer;
 }
 
+/* Bouton contact dans le header */
 .btn-contact {
   font-size: 27px;
   padding: 14px 28px;
@@ -68,11 +78,13 @@ body {
   transition: background-color 0.3s;
 }
 
+/* Effet au survol du bouton contact */
 .btn-contact:hover {
   background: #5B4138;
 }
 
 /* === Bannières === */
+/* Style général des bannières */
 .banner {
   display: flex;
   justify-content: center;
@@ -86,30 +98,36 @@ body {
   text-shadow: 1px 1px 5px black;
 }
 
+/* Contenu de la bannière */
 .banner-content {
   max-width: 800px;
   padding: 20px;
 }
 
+/* Titre de la bannière */
 .banner-content h1 {
   font-size: 3rem;
   text-decoration: underline;
 }
 
+/* Texte de la bannière */
 .banner-content p {
   font-size: 1.5rem;
   margin-top: 10px;
 }
 
+/* Images de fond pour chaque bannière */
 .banner-accueil { background-image: url('images/banner.jpg'); }
 .banner-composer { background-image: url('images/banner_composer.jpg') !important; }
 .banner-contact  { background-image: url('images/banner_contact.jpg') !important; }
 
 /* === Formulaire fleurs === */
+/* Espacement entre les éléments du catalogue */
 #catalogue > div {
   margin-bottom: 10px;
 }
 
+/* Style du formulaire de fleurs */
 #formFleurs {
   max-width: 600px;
   margin: 40px auto;
@@ -119,21 +137,25 @@ body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
+/* Champ de saisie pour les nombres */
 input[type=number] {
   width: 60px;
   margin-left: 5px;
 }
 
+/* Titre principal centré et blanc */
 h1 {
   text-align: center;
   color: #fff;
 }
 
+/* Sous-titre centré et couleur principale */
 h2 {
   text-align: center;
   color: #5B4138;
 }
 
+/* Bouton de soumission du formulaire */
 button[type="submit"] {
   margin-top: 20px;
   padding: 10px 20px;
@@ -146,11 +168,13 @@ button[type="submit"] {
   transition: background-color 0.3s;
 }
 
+/* Effet au survol du bouton de soumission */
 button[type="submit"]:hover {
   background: #e48892;
 }
 
 /* === Footer === */
+/* Style du pied de page */
 footer {
   background: #FFF9C4;
   color: #5B4138;
@@ -161,6 +185,7 @@ footer {
 }
 
 /* === Introduction bouquets === */
+/* Introduction de la section bouquets */
 .intro-bouquets {
   text-align: center;
   padding: 60px 30px 30px;
@@ -171,6 +196,7 @@ footer {
   line-height: 1.9;
 }
 
+/* Titre principal de l'intro bouquets */
 .intro-bouquets h1 {
   font-size: 3.5rem;
   text-decoration: underline;
@@ -178,6 +204,7 @@ footer {
   color: #5B4138;
 }
 
+/* Sous-titre de l'intro bouquets */
 .intro-bouquets h2 {
   font-size: 2.2rem;
   font-weight: 400;
@@ -185,6 +212,7 @@ footer {
   margin: 0 0 10px;
 }
 
+/* Texte de l'intro bouquets */
 .intro-bouquets p {
   font-size: 1.9rem;
   line-height: 1.8;
@@ -193,6 +221,7 @@ footer {
 }
 
 /* === Grille des bouquets === */
+/* Grille de présentation des bouquets */
 .bouquet-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -202,6 +231,7 @@ footer {
   margin: auto;
 }
 
+/* Carte individuelle de bouquet */
 .bouquet {
   background: #FFFDEC;
   border-radius: 15px;
@@ -211,28 +241,34 @@ footer {
   transition: transform 0.2s;
 }
 
+/* Effet au survol de la carte bouquet */
 .bouquet:hover {
   transform: translateY(-5px);
 }
 
+/* Image du bouquet */
 .bouquet img {
   width: 100%;
   max-height: 200px;
   object-fit: cover;
   border-radius: 12px;
 }
+
+/* Titre du bouquet */
 .bouquet h3 {
   font-size: 1.8em;
   margin-top: 15px;
   color: #5B4138;
 }
 
+/* Taille du bouquet */
 .bouquet .taille {
   font-size: 3em;
   color: #937262;
   margin-top: 5px;
 }
 
+/* Prix du bouquet */
 .bouquet .prix {
   font-size: 1.4em;
   font-weight: bold;
@@ -240,6 +276,7 @@ footer {
   margin: 10px 0;
 }
 
+/* Icône ajouter au panier */
 .ajouter-panier {
   width: 45px !important;
   height: 45px !important;
@@ -249,13 +286,13 @@ footer {
   display: block;
 }
 
-
+/* Effet au survol de l'icône panier */
 .ajouter-panier:hover {
   transform: scale(1.1);
 }
 
-
 /* === Présentation fleuriste === */
+/* Section présentation du fondateur */
 .founder-section {
   display: flex;
   flex-wrap: wrap;
@@ -266,12 +303,14 @@ footer {
   padding: 60px 40px;
 }
 
+/* Conteneur des images du fondateur */
 .founder-images {
   position: relative;
   width: 320px;
   height: 400px;
 }
 
+/* Fond crème derrière les images */
 .fond-creme {
   position: absolute;
   top: 40px;
@@ -284,6 +323,7 @@ footer {
   z-index: 1;
 }
 
+/* Image du bouquet */
 .bouquet-img {
   position: absolute;
   top: 60px;
@@ -296,6 +336,7 @@ footer {
   z-index: 2;
 }
 
+/* Portrait du fondateur */
 .portrait-img {
   position: absolute;
   top: -20px;
@@ -307,6 +348,7 @@ footer {
   box-shadow: 4px 4px 12px rgba(0,0,0,0.3);
 }
 
+/* Texte de présentation du fondateur */
 .founder-text {
   max-width: 600px;
   font-size: 1.1rem;
@@ -314,6 +356,7 @@ footer {
   color: #5B4138;
 }
 
+/* Titre du texte fondateur */
 .founder-text h2 {
   font-size: 2.4rem;
   margin-bottom: 25px;
@@ -321,6 +364,7 @@ footer {
 }
 
 /* === FAQ === */
+/* Section FAQ */
 .faq {
   max-width: 800px;
   margin: 60px auto;
@@ -331,6 +375,7 @@ footer {
   font-family: 'Oregano', cursive;
 }
 
+/* Titre de la FAQ */
 .faq h2 {
   text-align: center;
   font-size: 2.2em;
@@ -338,10 +383,12 @@ footer {
   color: #5B4138;
 }
 
+/* Élément individuel de la FAQ */
 .faq-item {
   margin-bottom: 20px;
 }
 
+/* Question de la FAQ */
 .faq-question {
   width: 100%;
   background: #F9AAB4;
@@ -351,8 +398,6 @@ footer {
   font-size: 1.1em;
   font-family: 'Oregano', cursive;
   font-weight: normal;
-  font-family: 'Oregano', cursive;
-  font-weight: normal;
   border-radius: 10px;
   cursor: pointer;
   text-align: left;
@@ -360,10 +405,12 @@ footer {
   margin-bottom: 15px;
 }
 
+/* Effet au survol de la question */
 .faq-question:hover {
   background: #e48892;
 }
 
+/* Réponse de la FAQ (cachée par défaut) */
 .faq-answer {
   display: none;
   padding: 15px 20px;
@@ -375,6 +422,7 @@ footer {
 }
 
 /* === QCM === */
+/* Section QCM */
 .qcm-section {
   background: #FDE5DF;
   padding: 40px 50px;
@@ -385,6 +433,7 @@ footer {
   color: #5B4138;
 }
 
+/* Fieldset du QCM */
 .qcm-section fieldset {
   border: 2px solid #F9AAB4;
   border-radius: 10px;
@@ -392,18 +441,21 @@ footer {
   margin-bottom: 25px;
 }
 
+/* Légende du QCM */
 .qcm-section legend {
   font-weight: bold;
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
+/* Label du QCM */
 .qcm-section label {
   cursor: pointer;
   font-size: 1.1rem;
 }
 
 /* === Formulaire contact === */
+/* Section du formulaire de contact */
 .contact-form-section {
   background: #FFF8D6;
   padding: 40px;
@@ -413,12 +465,14 @@ footer {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+/* Label du formulaire de contact */
 .contact-form label {
   display: block;
   margin-top: 15px;
   font-weight: bold;
 }
 
+/* Champs du formulaire de contact */
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
@@ -433,11 +487,13 @@ footer {
   box-sizing: border-box;
 }
 
+/* Zone de texte du formulaire de contact */
 .contact-form textarea {
   min-height: 100px;
   resize: vertical;
 }
 
+/* Bouton de soumission du formulaire de contact */
 .contact-form button[type="submit"] {
   margin-top: 30px;
   background: #F9AAB4;
@@ -450,11 +506,13 @@ footer {
   transition: background-color 0.3s;
 }
 
+/* Effet au survol du bouton contact */
 .contact-form button[type="submit"]:hover {
   background: #5B4138;
 }
 
 /* === Newsletter === */
+/* Section newsletter */
 .newsletter {
   background: #FFF7F0;
   padding: 40px 20px;
@@ -464,6 +522,7 @@ footer {
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
+/* Titre de la newsletter */
 .newsletter h2 {
   font-size: 2em;
   color: #5B4138;
@@ -471,6 +530,7 @@ footer {
   position: relative;
 }
 
+/* Ligne décorative sous le titre */
 .newsletter h2::after {
   content: '';
   width: 100px;
@@ -481,17 +541,20 @@ footer {
   display: block;
 }
 
+/* Sous-titre de la newsletter */
 .newsletter .sous-titre {
   font-size: 1.1em;
   color: #937262;
   margin-bottom: 10px;
 }
 
+/* Invitation à s'inscrire */
 .newsletter .invitation {
   font-size: 1em;
   margin-bottom: 25px;
 }
 
+/* Note de la newsletter */
 .newsletter .note {
   font-style: italic;
   color: #AA6C4E;
@@ -499,6 +562,7 @@ footer {
   font-size: 0.95rem;
 }
 
+/* Champ email de la newsletter */
 input[type="email"] {
   width: 250px;
   padding: 10px 14px;
@@ -509,6 +573,7 @@ input[type="email"] {
   margin-top: 15px;
 }
 
+/* Bouton général */
 button {
   margin-top: 20px;
   background: #F9AAB4;
@@ -521,10 +586,12 @@ button {
   transition: background-color 0.3s ease;
 }
 
+/* Effet au survol du bouton général */
 button:hover {
   background: #5B4138;
 }
 
+/* Grille des engagements */
 .engagements {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -534,11 +601,13 @@ button:hover {
   padding: 0 20px;
 }
 
+/* Carte individuelle d'engagement */
 .engagement {
   text-align: center;
   color: #5B4138;
 }
 
+/* Image de l'engagement */
 .engagement img {
   width: 100%;
   max-width: 120px;
@@ -550,13 +619,14 @@ button:hover {
   border-radius: 8px; /* optionnel : un petit arrondi pour adoucir */
 }
 
-
+/* Titre de l'engagement */
 .engagement h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
   text-decoration: underline;
 }
 
+/* Texte de l'engagement */
 .engagement p {
   font-size: 1rem;
   line-height: 1.6;
@@ -564,9 +634,8 @@ button:hover {
   margin: 0 auto;
 }
 
-
 /** HORAIRE **/
-
+/* Titre de la section horaires */
 .horaires .section-title {
   font-size: 2.5rem;
   color: #5B4138;
@@ -575,6 +644,7 @@ button:hover {
   font-family: 'Oregano', cursive;
 }
 
+/* Image des horaires */
 .horaires-img {
   max-width: 100%;
   height: auto;
@@ -583,6 +653,7 @@ button:hover {
   padding: 40px 20px;
 }
 
+/* Titre de la section horaires (répété) */
 .horaires .section-title {
   font-size: 2.5rem;
   color: #5B4138;
@@ -590,6 +661,7 @@ button:hover {
   font-family: 'Oregano', cursive;
 }
 
+/* Image des horaires (répété) */
 .horaires-img {
   max-width: 100%;
   height: auto;
@@ -603,88 +675,92 @@ button:hover {
   z-index: 2; /* texte au-dessus des images */
 }
 
+/* Conteneur d'image */
 .image-container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-
-
+/* === Boutique intro === */
+/* Section d'introduction de la boutique */
 .boutique-intro {
-position: relative; /* Important pour que les enfants en absolute se réfèrent à cette section */
-padding: 60px 40px; /* un peu d'espace autour du texte */
-padding: 80px 40px; /* plus d'espace pour les images décoratives */
-max-width: 900px;
-margin: 0 auto;
-color: #5B4138;
-font-size: 1.4rem;
-line-height: 1.9;
-min-height: 500px; /* hauteur minimale pour contenir les images */
+  position: relative; /* Important pour que les enfants en absolute se réfèrent à cette section */
+  padding: 60px 40px; /* un peu d'espace autour du texte */
+  padding: 80px 40px; /* plus d'espace pour les images décoratives */
+  max-width: 900px;
+  margin: 0 auto;
+  color: #5B4138;
+  font-size: 1.4rem;
+  line-height: 1.9;
+  min-height: 500px; /* hauteur minimale pour contenir les images */
 }
 
+/* Conteneur du texte de la boutique */
 .boutique-intro .container {
-text-align: center;
-position: relative;
-padding: 80px 20px;
-padding: 40px 20px;
-max-width: 800px;
-margin: 0 auto;
-z-index: 2; /* texte au-dessus des images */
+  text-align: center;
+  position: relative;
+  padding: 80px 20px;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 2; /* texte au-dessus des images */
 }
 
-
+/* Titre de la boutique */
 .boutique-intro h2 {
-font-size: 3rem;
-text-decoration: underline;
-margin-bottom: 20px;
-color: #5B4138;
+  font-size: 3rem;
+  text-decoration: underline;
+  margin-bottom: 20px;
+  color: #5B4138;
 }
 
+/* Sous-titre de la boutique */
 .boutique-intro p.subtitle {
-font-size: 1.6rem;
-font-style: italic;
-margin-bottom: 20px;
-color: #8A4B38;
+  font-size: 1.6rem;
+  font-style: italic;
+  margin-bottom: 20px;
+  color: #8A4B38;
 }
 
+/* Texte de la boutique */
 .boutique-intro p {
-margin-bottom: 15px;
-font-size: 1.1rem;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
 }
 
-
-/* Positionnement des images décoratives */
+/* Positionnement des images décoratives à gauche */
 .fleur-gauche {
-position: absolute;
-top: 0;
-left: 0;
-width: 180px;
-z-index: 0;
-top: 20px;
-left: -20px;
-width: 150px;
-height: auto;
-z-index: 1;
-opacity: 0.8;
- }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  z-index: 0;
+  top: 20px;
+  left: -20px;
+  width: 150px;
+  height: auto;
+  z-index: 1;
+  opacity: 0.8;
+}
 
+/* Positionnement des images décoratives à droite */
 .fleur-droite {
-position: absolute;
-bottom: 0;
-right: 0;
-width: 180px;
-z-index: 0;
-bottom: 20px;
-right: -20px;
-width: 150px;
-height: auto;
-z-index: 1;
-opacity: 0.8;
- }
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 180px;
+  z-index: 0;
+  bottom: 20px;
+  right: -20px;
+  width: 150px;
+  height: auto;
+  z-index: 1;
+  opacity: 0.8;
+}
 
-
- /* Livraison OPTIONS */
+/* === Livraison OPTIONS === */
+/* Section options de livraison */
 .livraison-option {
   text-align: center;
   color: #5B4138;
@@ -692,12 +768,14 @@ opacity: 0.8;
   padding: 0 20px;
 }
 
+/* Titre des options de livraison */
 .livraison-option h2 {
   font-size: 2.5rem;
   text-decoration: underline;
   margin-bottom: 50px;
 }
 
+/* Grille des cartes de livraison */
 .livraison-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -706,10 +784,12 @@ opacity: 0.8;
   margin: 0 auto;
 }
 
+/* Carte individuelle de livraison */
 .livraison-card {
   text-align: center;
 }
 
+/* Image de la carte livraison */
 .livraison-card img {
   width: 100%;
   max-width: 190px;
@@ -721,12 +801,14 @@ opacity: 0.8;
   border-radius: 8px;
 }
 
+/* Titre de la carte livraison */
 .livraison-card h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
   text-decoration: underline;
 }
 
+/* Texte de la carte livraison */
 .livraison-card p {
   font-size: 1rem;
   line-height: 1.6;
@@ -734,8 +816,8 @@ opacity: 0.8;
   margin: 0 auto;
 }
 
-
-/* Livraison OPTIONS */
+/* === Panier === */
+/* Section du panier */
 .panier-section {
   background-color: #fdf8f5;
   padding: 60px 20px;
@@ -743,6 +825,7 @@ opacity: 0.8;
   font-family: 'Oregano', cursive;
 }
 
+/* Titre du panier */
 .panier-section h2 {
   text-align: center;
   font-size: 3rem;
@@ -750,11 +833,13 @@ opacity: 0.8;
   text-decoration: underline;
 }
 
+/* Message panier vide */
 .panier-vide {
   text-align: center;
   font-size: 1.2rem;
 }
 
+/* Liste des articles du panier */
 .panier-liste {
   display: grid;
   grid-template-columns: 1fr;
@@ -763,6 +848,7 @@ opacity: 0.8;
   margin: 0 auto 40px;
 }
 
+/* Article individuel du panier */
 .panier-item {
   display: flex;
   background: #fffaf7;
@@ -773,6 +859,7 @@ opacity: 0.8;
   gap: 20px;
 }
 
+/* Image de l'article du panier */
 .panier-item img {
   width: 100px;
   height: 100px;
@@ -780,31 +867,37 @@ opacity: 0.8;
   border-radius: 12px;
 }
 
+/* Détails de l'article du panier */
 .panier-details {
   flex: 1;
 }
 
+/* Titre de l'article du panier */
 .panier-details h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
   text-decoration: underline;
 }
 
+/* Texte des détails du panier */
 .panier-details p {
   margin: 5px 0;
   font-size: 1rem;
 }
 
+/* Sous-total du panier */
 .sous-total {
   font-weight: bold;
   margin-top: 10px;
 }
 
+/* Total du panier */
 .panier-total {
   text-align: center;
   font-size: 1.4rem;
 }
 
+/* Bouton commander */
 .btn-commander {
   display: inline-block;
   margin-top: 20px;
@@ -816,11 +909,13 @@ opacity: 0.8;
   transition: background 0.3s ease;
 }
 
+/* Effet au survol du bouton commander */
 .btn-commander:hover {
   background-color: #8b6456;
 }
 
-
+/* === Connexion === */
+/* Conteneur du formulaire de connexion */
 .login-container {
   width: 100%;
   max-width: 400px;
@@ -829,12 +924,14 @@ opacity: 0.8;
   box-sizing: border-box;
 }
 
+/* Formulaire de connexion */
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Texte sous le formulaire */
 form p {
   margin-top: 20px;
   font-size: 16px;
@@ -842,6 +939,7 @@ form p {
   text-align: center;
 }
 
+/* Lien dans le texte du formulaire */
 form p a {
   color: #F9AAB4;
   text-decoration: none;
@@ -849,11 +947,13 @@ form p a {
   transition: color 0.3s ease;
 }
 
+/* Effet au survol du lien */
 form p a:hover {
   color: #d87c8a;
   text-decoration: underline;
 }
 
+/* Bouton icône */
 .bouton-icone {
   background: none;
   border: none;
@@ -861,7 +961,3 @@ form p a:hover {
   cursor: pointer;
   padding: 0 5px;
 }
-
-
-
-

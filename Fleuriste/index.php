@@ -3,19 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Boutique Fleuriste</title>
+  <!-- Feuille de style principale -->
   <link rel="stylesheet" href="assets/style.css">
+  <!-- Police Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Oregano&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER : En-tête du site avec logo, navigation et icônes utilisateur/panier/contact -->
   <header>
     <div class="header-container">
       <div class="header-left">
+        <!-- Logo du site -->
         <img src="assets/images/logo.jpg" alt="Logo" class="logo">
       </div>
 
+      <!-- Menu de navigation principal -->
       <nav class="header-center">
         <a href="index.php">Accueil</a>
         <a href="a_propos.php">À propos</a>
@@ -24,14 +28,17 @@
       </nav>
 
       <div class="header-right">
+        <!-- Icône utilisateur -->
         <a href="compte.php"><img src="assets/images/user.png" alt="Mon compte" class="icon"></a>
+        <!-- Icône panier -->
         <a href="panier.php"><img src="assets/images/panier.png" alt="Panier" class="icon"></a>
+        <!-- Bouton contact -->
         <a href="contact.php" class="btn-contact">Contact</a>
       </div>
     </div>
   </header>
 
-  <!-- BANNIÈRE -->
+  <!-- BANNIÈRE : Section d'accroche avec titre et slogan -->
   <section class="banner banner-accueil">
     <div class="banner-content">
       <h1>Fleuriste & Créatrice d’espaces fleuris</h1>
@@ -39,7 +46,7 @@
     </div>
   </section>
 
- <!-- SECTION BOUQUETS -->
+ <!-- SECTION BOUQUETS : Présentation des fleurs de saison -->
 <main>
   <section class="intro-bouquets">
     <h1>🌺 Les fleurs de saison</h1>
@@ -52,11 +59,12 @@
     </p>
   </section>
 
+  <!-- Liste des bouquets affichée dynamiquement en JS -->
   <div id="bouquets" class="bouquet-list"></div>
 </main>
 
 
-<!-- SCRIPT JS BOUQUET -->
+<!-- SCRIPT JS BOUQUET : Récupère et affiche les bouquets depuis l'API -->
 <script>
   fetch('api/get_bouquets.php')
     .then(res => res.json())
@@ -70,14 +78,6 @@
     <p class="taille">Taille : ${b.taille}</p>
     <p class="prix">${b.prix} €</p>
     <img src="assets/images/panier.png" alt="Ajouter au panier" class="ajouter-panier" onclick="ajouterAuPanier(${b.id})">
-  </div>
-`;
-
-      });
-    });
-
-  function ajouterAuPanier(id) {
-    fetch('api/add_to_cart.php', {
       method: 'POST',
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       body: 'id=' + id

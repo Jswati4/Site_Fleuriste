@@ -1,6 +1,6 @@
 <?php
-session_start();
-header('Content-Type: application/json');
+session_start(); // Démarre la session PHP
+header('Content-Type: application/json'); // Définit le type de contenu de la réponse en JSON
 
 // Bouquets prédéfinis
 $catalogue = [
@@ -11,47 +11,45 @@ $catalogue = [
 ];
 
 // Traitement du panier prédéfini
-$panier = $_SESSION['panier'] ?? [];
-$resultat = array_count_values($panier);
+$panier = $_SESSION['panier'] ?? []; // Récupère le panier depuis la session, ou tableau vide si non défini
+$resultat = array_count_values($panier); // Compte le nombre d'occurrences de chaque bouquet dans le panier
 
-$items = [];
+$items = []; // Tableau qui contiendra les éléments du panier
 foreach ($resultat as $id => $quantite) {
+  // Vérifie si l'ID existe dans le catalogue
   if (isset($catalogue[$id])) {
-    $item = $catalogue[$id];
+    $item = $catalogue[$id]; // Récupère les infos du bouquet
     $items[] = [
-      "nom" => $item['nom'],
-      "quantite" => $quantite,
-      "total" => $quantite * $item['prix']
+      "nom" => $item['nom'], // Nom du bouquet
+      "quantite" => $quantite, // Quantité dans le panier
+      "total" => $quantite * $item['prix'] // Prix total pour ce bouquet
     ];
   }
 }
 
 // Traitement du bouquet personnalisé
-$customs = $_SESSION['custom'] ?? [];
+$customs = $_SESSION['custom'] ?? []; // Récupère les bouquets personnalisés depuis la session
 foreach ($customs as $index => $bouquet) {
-  $nom = "Bouquet personnalisé #" . ($index + 1);
-  $total = $bouquet['total'];
+  $nom = "Bouquet personnalisé #" . ($index + 1); // Nom du bouquet personnalisé
+  $total = $bouquet['total']; // Prix total du bouquet personnalisé
 
-  $fleursListe = [];
+  $fleursListe = []; // Liste des fleurs du bouquet personnalisé
   foreach ($bouquet['fleurs'] as $f) {
-    $fleursListe[] = "{$f['quantite']}x {$f['nom']}";
+    $fleursListe[] = "{$f['quantite']}x {$f['nom']}"; // Ajoute la quantité et le nom de chaque fleur
   }
 
   $items[] = [
-    "nom" => $nom . " (" . implode(", ", $fleursListe) . ")",
-    "quantite" => 1,
-    "total" => $total
+    "nom" => $nom . " (" . implode(", ", $fleursListe) . ")", // Nom + liste des fleurs
+    "quantite" => 1, // Un seul bouquet personnalisé à chaque fois
+    "total" => $total // Prix total
   ];
 }
 
-echo json_encode($items);
+echo json_encode($items); // Renvoie le panier au format JSON
 
+// Requêtes SQL (non utilisées dans ce script)
+// $sql = "SELECT * FROM Client WHERE email = '$email'";
 
-
-
-$sql = "SELECT * FROM Client WHERE email = '$email'";
-
-
-$stmt = $pdo->prepare("SELECT * FROM Client WHERE email = ?");
-$stmt->execute([$email]);
-
+// Préparation et exécution d'une requête SQL (non utilisée ici)
+// $stmt = $pdo->prepare("SELECT * FROM Client WHERE email = ?");
+// $stmt->execute([$email]);

@@ -1,7 +1,9 @@
 <?php
+// Définit le type de contenu de la réponse comme JSON
 header('Content-Type: application/json');
 
 // Simulation de fleurs disponibles (remplacez par votre base de données)
+// Tableau associatif contenant les informations sur chaque fleur
 $fleurs = [
     ['id' => 1, 'nom' => 'Rose rouge', 'prix' => 3.50],
     ['id' => 2, 'nom' => 'Rose blanche', 'prix' => 3.50],
@@ -17,7 +19,6 @@ $fleurs = [
     ['id' => 12, 'nom' => 'Fougère', 'prix' => 1.80]
 ];
 
+// Encode le tableau $fleurs en format JSON et l'affiche
 echo json_encode($fleurs);
 ?>
-
-

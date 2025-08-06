@@ -1,10 +1,10 @@
 <?php
-session_start();
+session_start(); // Démarre la session PHP pour stocker les données utilisateur
 
-$bouquet = [];
-$total = 0;
+$bouquet = []; // Tableau pour stocker les fleurs du bouquet personnalisé
+$total = 0;    // Variable pour calculer le prix total du bouquet
 
-// Catalogue fixe pour ce test
+// Catalogue fixe pour ce test : liste des fleurs disponibles avec leur prix
 $catalogue = [
   ["id" => "F1", "nom" => "Rose", "prix" => 2.00],
   ["id" => "F2", "nom" => "Tulipe", "prix" => 1.80],
@@ -15,27 +15,27 @@ $catalogue = [
 ];
 
 // Traitement des fleurs envoyées en POST
-foreach ($_POST as $id => $qte) {
-  $qte = intval($qte);
-  if ($qte > 0) {
-    foreach ($catalogue as $fleur) {
-      if ($fleur['id'] === $id) {
+foreach ($_POST as $id => $qte) { // Parcourt chaque fleur envoyée via le formulaire
+  $qte = intval($qte); // Convertit la quantité en entier
+  if ($qte > 0) { // Vérifie que la quantité est positive
+    foreach ($catalogue as $fleur) { // Recherche la fleur dans le catalogue
+      if ($fleur['id'] === $id) { // Si l'ID correspond
         $bouquet[] = [
-          "id" => $fleur['id'],
-          "nom" => $fleur['nom'],
-          "prix" => $fleur['prix'],
-          "quantite" => $qte
+          "id" => $fleur['id'],         // Ajoute l'ID de la fleur
+          "nom" => $fleur['nom'],       // Ajoute le nom de la fleur
+          "prix" => $fleur['prix'],     // Ajoute le prix unitaire
+          "quantite" => $qte            // Ajoute la quantité choisie
         ];
-        $total += $qte * $fleur['prix'];
+        $total += $qte * $fleur['prix']; // Ajoute au total le prix de cette fleur
       }
     }
   }
 }
 
 // Enregistrement du bouquet dans la session
-if (!isset($_SESSION['custom'])) {
-  $_SESSION['custom'] = [];
+if (!isset($_SESSION['custom'])) { // Si le tableau 'custom' n'existe pas dans la session
+  $_SESSION['custom'] = [];        // On le crée
 }
-$_SESSION['custom'][] = ["fleurs" => $bouquet, "total" => $total];
+$_SESSION['custom'][] = ["fleurs" => $bouquet, "total" => $total]; // Ajoute le bouquet et son total dans la session
 
-echo "Bouquet personnalisé ajouté !";
+echo "Bouquet personnalisé ajouté !"; // Message de confirmation

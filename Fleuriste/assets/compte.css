@@ -1,53 +1,54 @@
-/*connexion*/
+/* connexion */
+/* Style général du body */
 body {
-  background-color: #fff8e7;
-  font-family: 'Arial', sans-serif;
-  color: #5B4138;
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding-bottom: 60px; /* espace en bas pour le lien */
+  background-color: #fff8e7; /* Couleur de fond principale */
+  font-family: 'Arial', sans-serif; /* Police du texte */
+  color: #5B4138; /* Couleur du texte */
+  height: 100vh; /* Hauteur de la fenêtre */
+  margin: 0; /* Suppression des marges par défaut */
+  display: flex; /* Utilisation du flexbox */
+  flex-direction: column; /* Alignement vertical */
+  justify-content: center; /* Centrage vertical du contenu */
+  align-items: center; /* Centrage horizontal du contenu */
+  position: relative; /* Position relative pour le positionnement interne */
+  padding-bottom: 60px; /* Espace en bas pour le lien footer */
 }
 
+/* Conteneur du formulaire de connexion */
 .connexion-container {
-  background-color: #fffced;
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(91, 65, 56, 0.3);
-  width: 320px;
-  text-align: center;
+  background-color: #fffced; /* Couleur de fond du conteneur */
+  padding: 40px 30px; /* Espacement interne */
+  border-radius: 20px; /* Bords arrondis */
+  box-shadow: 0 5px 15px rgba(91, 65, 56, 0.3); /* Ombre portée */
+  width: 320px; /* Largeur fixe */
+  text-align: center; /* Centrage du texte */
 }
 
+/* Style du lien en bas de page (footer) */
 .footer-link {
-  position: fixed;       /* position fixe en bas */
-  bottom: 20px;          /* 20px du bas */
-  left: 50%;             /* centré horizontalement */
-  transform: translateX(-50%);
-  font-size: 1em;
-  color: #5B4138;
-  background-color: #fffced;
-  padding: 5px 10px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(91, 65, 56, 0.2);
-  font-weight: 600;
-  z-index: 1000;
+  position: fixed;       /* Position fixe en bas de la fenêtre */
+  bottom: 20px;          /* Décalage de 20px du bas */
+  left: 50%;             /* Centrage horizontal */
+  transform: translateX(-50%); /* Ajustement pour le centrage */
+  font-size: 1em; /* Taille de police */
+  color: #5B4138; /* Couleur du texte */
+  background-color: #fffced; /* Couleur de fond */
+  padding: 5px 10px; /* Espacement interne */
+  border-radius: 10px; /* Bords arrondis */
+  box-shadow: 0 2px 8px rgba(91, 65, 56, 0.2); /* Ombre légère */
+  font-weight: 600; /* Texte en gras */
+  z-index: 1000; /* Priorité d'affichage */
 }
 
+/* Style du lien à l'intérieur du footer */
 .footer-link a {
-  color: #5B4138;
-  text-decoration: none;
-  font-weight: 700;
+  color: #5B4138; /* Couleur du lien */
+  text-decoration: none; /* Suppression du soulignement */
+  font-weight: 700; /* Texte plus gras */
 }
 
+/* Effet au survol du lien */
 .footer-link a:hover {
-  color: #F9AAB4;
-  text-decoration: underline;
+  color: #F9AAB4; /* Changement de couleur au survol */
+  text-decoration: underline; /* Soulignement au survol */
 }
-
-
-
-

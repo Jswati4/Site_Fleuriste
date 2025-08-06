@@ -1,7 +1,10 @@
 <?php
+// Définit le type de contenu de la réponse HTTP comme JSON
 header('Content-Type: application/json');
 
+// Tableau contenant les informations des bouquets disponibles en boutique
 $bouquets = [
+  // Chaque bouquet est représenté par un tableau associatif avec ses propriétés
   ["id" => 1, "nom" => "Clarté d'Aube", "prix" => 28, "taille" => "S", "image" => "clarte-aube.jpg", "description" => "Douceur matinale aux tons poudrés"],
   ["id" => 2, "nom" => "Nuage Lavande", "prix" => 40, "taille" => "S", "image" => "nuage-lavande.jpg", "description" => "Élégance violette et parfum délicat"],
   ["id" => 3, "nom" => "Rosée Bohème", "prix" => 70, "taille" => "L", "image" => "rosee-boheme.jpg", "description" => "Création libre aux accents sauvages"],
@@ -12,5 +15,6 @@ $bouquets = [
   ["id" => 8, "nom" => "Éveil Sauvage", "prix" => 85, "taille" => "L", "image" => "eveil-sauvage.jpg", "description" => "Puissance naturelle et caractère affirmé"]
 ];
 
+// Encode le tableau $bouquets en format JSON et l'affiche
 echo json_encode($bouquets);
 ?>

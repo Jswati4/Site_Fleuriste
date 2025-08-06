@@ -1,3 +1,28 @@
+/**
+ * Ajoute un produit au panier dans la session utilisateur.
+ *
+ * Ce script reçoit des données JSON via une requête POST contenant les informations du produit
+ * (nom, prix, image). Il vérifie la validité des données reçues, initialise le panier si nécessaire,
+ * puis ajoute le produit au panier ou incrémente la quantité si le produit existe déjà.
+ * 
+ * Réponses JSON :
+ * - Succès : { "status": "ok" }
+ * - Erreur : { "status": "error", "message": "Données invalides" }
+ *
+ * Variables de session utilisées :
+ * - $_SESSION['panier'] : tableau contenant les produits ajoutés au panier.
+ *
+ * Données attendues (JSON) :
+ * - nom (string)   : Nom du produit
+ * - prix (float)   : Prix du produit
+ * - image (string) : URL de l'image du produit
+ *
+ * Sécurité :
+ * - Utilise unset($item) après la boucle pour éviter les effets de bord.
+ *
+ * @author  swati
+ * @version 1.0
+ */
 <?php
 session_start();
 header('Content-Type: application/json');
