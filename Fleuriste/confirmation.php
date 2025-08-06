@@ -28,7 +28,8 @@ if ($code_promo) {
   // Liste des codes promo et leur réduction associée
   $codes_promo = [
     'FLOW10' => 0.10,
-    'BONUS5' => 0.05
+    'BONUS5' => 0.05,
+    'SUM3' => 0.20
   ];
 
   // Nettoie et met en majuscule le code promo
