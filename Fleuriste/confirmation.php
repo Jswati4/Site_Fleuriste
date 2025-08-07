@@ -1,50 +1,44 @@
 <?php
-// Démarre la session pour accéder aux variables de session
 session_start();
+require 'config.php'; // Connexion BDD
 
-// Récupère le panier depuis la session, ou un tableau vide si non défini
 $panier = $_SESSION['panier'] ?? [];
 $total = 0;
-
-// Calcule le total du panier
 foreach ($panier as $item) {
   $total += $item['prix'] * $item['quantite'];
 }
 
 // === Gestion des infos client ===
-// Récupère et sécurise les informations du client envoyées via le formulaire
 $nom = htmlspecialchars($_POST['nom'] ?? '');
 $adresse = htmlspecialchars($_POST['adresse'] ?? '');
 $ville = htmlspecialchars($_POST['ville'] ?? '');
 $cp = htmlspecialchars($_POST['code_postal'] ?? '');
 $email = htmlspecialchars($_POST['email'] ?? '');
 
-// === Gestion du code promo ===
+// === Gestion du code promo depuis la BDD ===
 $reduction = 0;
-// Récupère le code promo appliqué depuis la session
 $code_promo = $_SESSION['code_promo_applique'] ?? null;
 
 if ($code_promo) {
-  // Liste des codes promo et leur réduction associée
-  $codes_promo = [
-    'FLOW10' => 0.10,
-    'BONUS5' => 0.05,
-    'SUM3' => 0.20
-  ];
+    $stmt = $conn->prepare("
+        SELECT * FROM promotion 
+        WHERE UPPER(code_promo) = ? 
+        AND CURDATE() BETWEEN date_debut AND date_fin
+    ");
+    $stmt->execute([strtoupper(trim($code_promo))]);
+    $promo = $stmt->fetch(PDO::FETCH_ASSOC);
 
-  // Nettoie et met en majuscule le code promo
-  $code = strtoupper(trim($code_promo));
-  // Vérifie si le code existe et applique la réduction
-  if (isset($codes_promo[$code])) {
-    $reduction = $codes_promo[$code];
-  }
+    if ($promo) {
+        $reduction = (float)$promo['pourcentage_de_reduc'] / 100;
+    } else {
+        $code_promo = null; // Si invalide au moment de la commande
+    }
 }
 
-// Calcule la remise et le total après réduction
 $total_remise = $total * $reduction;
 $total_apres_remise = $total - $total_remise;
 
-// Vide le panier et le code promo après la commande
+// On vide le panier et le code promo après la commande
 $_SESSION['panier'] = [];
 unset($_SESSION['code_promo_applique']);
 unset($_SESSION['reduction']);
@@ -57,7 +51,6 @@ unset($_SESSION['reduction']);
   <title>Commande Confirmée</title>
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* Styles CSS pour la page de confirmation */
     body {
       font-family: Arial, sans-serif;
       background-color: #FFE0D4;
@@ -122,10 +115,8 @@ unset($_SESSION['reduction']);
 <body>
 
 <main>
-  <!-- Message de remerciement -->
   <h1>🎉 Merci pour votre commande !</h1>
 
-  <!-- Informations de livraison -->
   <h2>📦 Livraison à :</h2>
   <p>
     <?= $nom ?><br>
@@ -134,8 +125,14 @@ unset($_SESSION['reduction']);
     📧 <strong><?= $email ?></strong>
   </p>
 
-  <!-- Récapitulatif de la commande -->
   <h2>🧾 Récapitulatif de la commande</h2>
+
+  <?php if ($code_promo): ?>
+    <p style="color: green; font-weight: bold;">
+      ✅ Code promo appliqué : <?= htmlspecialchars($code_promo) ?> (-<?= $reduction * 100 ?> %)
+    </p>
+  <?php endif; ?>
+
   <?php if (!empty($panier)): ?>
     <table>
       <tr>
@@ -156,7 +153,6 @@ unset($_SESSION['reduction']);
       <?php endforeach; ?>
 
       <?php if ($reduction > 0): ?>
-        <!-- Affiche la réduction si un code promo est appliqué -->
         <tr>
           <td colspan="4" align="right">Code promo (<?= htmlspecialchars($code_promo) ?>) :</td>
           <td>-<?= number_format($total_remise, 2) ?> €</td>
@@ -166,7 +162,6 @@ unset($_SESSION['reduction']);
           <td><strong><?= number_format($total_apres_remise, 2) ?> €</strong></td>
         </tr>
       <?php else: ?>
-        <!-- Affiche le total sans réduction -->
         <tr>
           <td colspan="4" align="right"><strong>Total :</strong></td>
           <td><strong><?= number_format($total, 2) ?> €</strong></td>
@@ -174,11 +169,9 @@ unset($_SESSION['reduction']);
       <?php endif; ?>
     </table>
   <?php else: ?>
-    <!-- Message si le panier est vide -->
     <p>Votre panier était vide.</p>
   <?php endif; ?>
 
-  <!-- Lien de retour à l'accueil -->
   <a href="index.php">🏠 Retour à l'accueil</a>
 </main>
 
