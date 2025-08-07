@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <?php endif; ?>
 
   <!-- Formulaire de connexion -->
-  <form method="POST" action="compte.php">
+  <form method="POST" action="compte">
     <input type="email" name="email" placeholder="E-mail" required />
     <div style="position: relative;">
     <!-- Champ mot de passe et case à cocher pour afficher/masquer le mot de passe -->

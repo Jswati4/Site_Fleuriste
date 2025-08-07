@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <?php endif; ?>
 
   <!-- Formulaire d'inscription -->
-  <form method="POST" action="inscription.php">
+  <form method="POST" action="inscription">
     <input type="text" name="nom" placeholder="Nom" required /> <!-- Champ nom -->
     <input type="text" name="prenom" placeholder="Prénom" required /> <!-- Champ prénom -->
     <input type="email" name="email" placeholder="E-mail" required /> <!-- Champ email -->

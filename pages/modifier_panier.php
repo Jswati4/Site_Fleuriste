@@ -34,5 +34,5 @@ if ($index !== null && isset($_SESSION['panier'][$index])) {
 }
 
 // Redirige l'utilisateur vers la page du panier
-header("Location: panier.php");
+header("Location: panier");
 exit;

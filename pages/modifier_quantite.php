@@ -33,5 +33,5 @@ if (isset($_POST['nom'], $_POST['action']) && isset($_SESSION['panier'])) {
 }
 
 // Redirige vers la page du panier après modification
-header('Location: panier.php');
+header('Location: panier');
 exit;

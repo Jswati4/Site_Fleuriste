@@ -52,7 +52,7 @@ $code_promo_applique = false; // Indique si un code promo est appliqué
     <!-- Affiche un message si le panier est vide -->
     <p style="text-align:center;">Votre panier est vide.</p>
     <div style="text-align:center;">
-      <a href="boutique.php">← Retour à la boutique</a>
+      <a href="boutique">← Retour à la boutique</a>
     </div>
   <?php else: ?>
     <!-- Affiche le tableau du panier si celui-ci n'est pas vide -->
@@ -87,7 +87,7 @@ $code_promo_applique = false; // Indique si un code promo est appliqué
           <!-- Gestion de la quantité avec boutons +, -, supprimer -->
           <td>
             <!-- Bouton pour diminuer la quantité -->
-            <form method="post" action="modifier_quantite.php" style="display:inline;">
+            <form method="post" action="/modifier_quantite" style="display:inline;">
               <input type="hidden" name="action" value="moins">
               <input type="hidden" name="nom" value="<?= htmlspecialchars($item['nom']) ?>">
               <button type="submit" class="bouton-icone">➖</button>
@@ -97,14 +97,14 @@ $code_promo_applique = false; // Indique si un code promo est appliqué
             <?= htmlspecialchars($item['quantite']) ?>
 
             <!-- Bouton pour augmenter la quantité -->
-            <form method="post" action="modifier_quantite.php" style="display:inline;">
+            <form method="post" action="/modifier_quantite" style="display:inline;">
               <input type="hidden" name="action" value="plus">
               <input type="hidden" name="nom" value="<?= htmlspecialchars($item['nom']) ?>">
               <button type="submit" class="bouton-icone">➕</button>
             </form>
 
             <!-- Bouton pour supprimer l'article du panier -->
-            <form method="post" action="modifier_quantite.php" style="display:inline;">
+            <form method="post" action="/modifier_quantite" style="display:inline;">
               <input type="hidden" name="action" value="supprimer">
               <input type="hidden" name="nom" value="<?= htmlspecialchars($item['nom']) ?>">
               <button type="submit" class="bouton-icone">🗑️</button>
@@ -142,7 +142,7 @@ $code_promo_applique = false; // Indique si un code promo est appliqué
 
     <!-- Formulaire pour entrer un code promo -->
     <div style="text-align:center; margin-top: 20px;">
-      <form method="post" action="appliquer_promo.php" style="display:inline-block;">
+      <form method="post" action="appliquer_promo" style="display:inline-block;">
         <input type="text" name="code_promo" placeholder="Code promo" required>
         <button type="submit">Appliquer</button>
       </form>

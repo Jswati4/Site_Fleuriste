@@ -32,6 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Redirige l'utilisateur vers la page du panier
-    header("Location: panier.php");
+    header("Location: /panier");
     exit; // Termine le script après la redirection
 }
