@@ -172,7 +172,7 @@ unset($_SESSION['reduction']);
     <p>Votre panier était vide.</p>
   <?php endif; ?>
 
-  <a href="index.php">🏠 Retour à l'accueil</a>
+  <a href="index">🏠 Retour à l'accueil</a>
 </main>
 
 </body>

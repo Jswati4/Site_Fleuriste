@@ -12,6 +12,6 @@ session_start();
 <body>
   <h2>Simulation PayPal</h2> <!-- Titre principal de la page -->
   <p>Vous êtes sur une page simulée de paiement PayPal.</p> <!-- Message d'information -->
-  <a href="confirmation.php">✅ Cliquer ici pour finaliser le paiement</a> <!-- Lien vers la page de confirmation -->
+  <a href="confirmation">✅ Cliquer ici pour finaliser le paiement</a> <!-- Lien vers la page de confirmation -->
 </body>
 </html>

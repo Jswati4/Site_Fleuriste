@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <!-- Lien vers la page d'inscription -->
   <p class="footer-link">
-  Pas encore de compte ? <a href="inscription.php">Inscrivez-vous ici</a>
+  Pas encore de compte ? <a href="inscription">Inscrivez-vous ici</a>
   </p>
 
 <script>

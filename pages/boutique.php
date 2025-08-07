@@ -10,31 +10,8 @@
 </head>
 
 <body>
+  <?php include 'composant/header.php'; ?>
 
-  <!-- HEADER : En-tête du site avec logo, navigation et icônes utilisateur/panier -->
-  <header>
-    <div class="header-container">
-      <div class="header-left">
-        <!-- Logo du site -->
-        <img src="assets/images/logo.jpg" alt="Logo" class="logo">
-      </div>
-
-      <nav class="header-center">
-        <!-- Liens de navigation principaux -->
-        <a href="index.php">Accueil</a>
-        <a href="a_propos.php">À propos</a>
-        <a href="boutique.php">Boutique</a>
-        <a href="composer.php">Composer mon bouquet</a>
-      </nav>
-
-      <div class="header-right">
-        <!-- Icônes utilisateur, panier et bouton contact -->
-        <a href="compte.php"><img src="assets/images/user.png" alt="Mon compte" class="icon"></a>
-        <a href="panier.php"><img src="assets/images/panier.png" alt="Panier" class="icon"></a>
-        <a href="contact.php" class="btn-contact">Contact</a>
-      </div>
-    </div>
-  </header>
 
    <!-- SECTION INTRO BOUTIQUE : Présentation de la boutique -->
   <section class="boutique-intro">

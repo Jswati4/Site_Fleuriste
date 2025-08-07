@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <!-- Lien vers la page de connexion -->
   <p class="footer-link">
-    Déjà un compte ? <a href="compte.php">Connectez-vous ici</a>
+    Déjà un compte ? <a href="compte">Connectez-vous ici</a>
   </p>
   </div>
 

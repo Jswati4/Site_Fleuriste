@@ -11,32 +11,7 @@
 
 <body>
 
-  <!-- HEADER : En-tête du site avec logo, navigation et icônes -->
-  <header>
-    <div class="header-container">
-      <div class="header-left">
-        <!-- Logo de la boutique -->
-        <img src="assets/images/logo.jpg" alt="Logo" class="logo">
-      </div>
-
-      <!-- Menu de navigation principal -->
-      <nav class="header-center">
-        <a href="index.php">Accueil</a>
-        <a href="a_propos.php">À propos</a>
-        <a href="boutique.php">Boutique</a>
-        <a href="composer.php">Composer mon bouquet</a>
-      </nav>
-
-      <div class="header-right">
-        <!-- Icône utilisateur (compte) -->
-        <a href="compte.php"><img src="assets/images/user.png" alt="Mon compte" class="icon"></a>
-        <!-- Icône panier -->
-        <a href="panier.php"><img src="assets/images/panier.png" alt="Panier" class="icon"></a>
-        <!-- Bouton contact -->
-        <a href="contact.php" class="btn-contact">Contact</a>
-      </div>
-    </div>
-  </header>
+  <?php include 'composant/header.php'; ?>
 
 
  <!-- SECTION HISTOIRE DU FONDATEUR -->

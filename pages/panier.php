@@ -156,7 +156,7 @@ $code_promo_applique = false; // Indique si un code promo est appliqué
 
     <!-- Liens pour continuer les achats ou valider la commande -->
     <div style="text-align:center; margin-top: 30px;">
-      <a href="boutique.php">← Continuer mes achats</a> |
+      <a href="boutique">← Continuer mes achats</a> |
       <a href="checkout.php"><button type="button">✅ Valider ma commande</button></a>
     </div>
   <?php endif; ?>
