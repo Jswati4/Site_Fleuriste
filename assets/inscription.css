@@ -1,0 +1,95 @@
+/* INSCRIPTION */
+
+/* Style général du body : fond, police, couleur, centrage vertical et horizontal */
+body {
+  background-color: #fff8e7; /* Couleur de fond douce */
+  font-family: 'Arial', sans-serif; /* Police principale */
+  color: #5B4138; /* Couleur du texte */
+  height: 100vh; /* Hauteur totale de la fenêtre */
+  margin: 0; /* Suppression des marges par défaut */
+  display: flex; /* Utilisation de flexbox */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+}
+
+/* Conteneur principal du formulaire d'inscription */
+.inscription-container {
+  background-color: #fffced; /* Fond du conteneur */
+  padding: 40px 30px; /* Espacement interne */
+  border-radius: 20px; /* Bords arrondis */
+  box-shadow: 0 5px 15px rgba(91, 65, 56, 0.3); /* Ombre portée */
+  width: 360px; /* Largeur fixe */
+  text-align: center; /* Centrage du texte */
+}
+
+/* Titre du formulaire */
+.inscription-container h2 {
+  font-size: 2.5em; /* Taille du texte */
+  margin-bottom: 30px; /* Espacement sous le titre */
+  color: #5B4138; /* Couleur du texte */
+}
+
+/* Champs de saisie du formulaire */
+.inscription-container input {
+  width: 100%; /* Largeur totale */
+  padding: 12px 15px; /* Espacement interne */
+  margin-bottom: 20px; /* Espacement sous chaque champ */
+  border-radius: 12px; /* Bords arrondis */
+  border: 2px solid #F9AAB4; /* Bordure colorée */
+  font-size: 1.1em; /* Taille du texte */
+  color: #5B4138; /* Couleur du texte */
+  box-sizing: border-box; /* Inclut la bordure dans la largeur */
+}
+
+/* Bouton du formulaire */
+.inscription-container button {
+  width: 100%; /* Largeur totale */
+  background-color: #F9AAB4; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  border: none; /* Pas de bordure */
+  padding: 12px 0; /* Espacement vertical */
+  font-size: 1.2em; /* Taille du texte */
+  border-radius: 30px; /* Bords très arrondis */
+  cursor: pointer; /* Curseur pointeur */
+  transition: background-color 0.3s ease; /* Animation sur le fond */
+}
+
+/* Effet au survol du bouton */
+.inscription-container button:hover {
+  background-color: #5B4138; /* Changement de couleur au survol */
+}
+
+/* Messages d'erreur et de succès */
+.erreur-message, .success-message {
+  font-weight: bold; /* Texte en gras */
+  margin-bottom: 15px; /* Espacement sous le message */
+}
+
+/* Message d'erreur */
+.erreur-message {
+  color: red; /* Couleur rouge */
+}
+
+/* Message de succès */
+.success-message {
+  color: green; /* Couleur verte */
+}
+
+/* Lien du pied de page */
+.footer-link {
+  margin-top: 20px; /* Espacement au-dessus */
+  font-size: 1em; /* Taille du texte */
+}
+
+/* Style du lien dans le pied de page */
+.footer-link a {
+  color: #5B4138; /* Couleur du lien */
+  text-decoration: none; /* Pas de soulignement */
+  font-weight: 700; /* Texte en gras */
+}
+
+/* Effet au survol du lien du pied de page */
+.footer-link a:hover {
+  color: #F9AAB4; /* Changement de couleur au survol */
+  text-decoration: underline; /* Soulignement au survol */
+}
